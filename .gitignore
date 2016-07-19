@@ -1,0 +1,5 @@
+HAVC/app/**/*.js
+HAVC/app/**/*.map
+typings
+node_modules
+.idea
