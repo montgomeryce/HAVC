@@ -1,0 +1,32 @@
+<h2>My Training Sessions </h2>
+
+<table class="trainingDataTable">
+    <thead>
+    <tr>
+        <!--<td>Id</td>-->
+        <td>Date</td>
+        <td>Name</td>
+        <td>ActivityType</td>
+        <td>Training Time</td>
+        <td>Training Distance</td>
+        <td>Training Calories</td>
+        <td>View Data</td>
+        <td>View Chart</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let session of trainingSessions">
+        <!--<td>{{session.id}}</td>-->
+        <td>{{session.date}}</td>
+        <td>{{session.name}}</td>
+        <td>{{session.activityType}}</td>
+        <td>{{session.totalTime }}</td>
+        <td>{{session.totalDistance}}</td>
+        <td>{{session.totalCalories}}</td>
+        <td><button (click)="onSelect(session.id)">Table</button></td>
+        <td>
+            <button (click)="onSelectLine(session.id)">Line</button>/<button (click)="onSelectArea(session.id)">Area</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
