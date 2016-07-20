@@ -8,8 +8,8 @@
         <td title="Polling Index">Number</td>
         <td title="Calories in KCal" >Calories</td>
         <td title="Altitude in feet">Altitude</td>
-        <td title="Altitude difference downhill in feet">AltDiffDownhill</td>
-        <td title="Altitude difference uphill in feet">AltDiffUphill</td>
+        <!--<td title="Altitude difference downhill in feet">AltDiffDownhill</td>
+        <td title="Altitude difference uphill in feet">AltDiffUphill</td>-->
         <td title="Cadence rotations per minute">Cadence</td>
         <td title="Absolute Distance in meters?" >Dist Abs</td>
         <td title="Distance in meters?" >Dist</td>
@@ -31,19 +31,20 @@
     <tbody>
     <tr *ngFor="let datum of trainData">
         <td>{{datum.number}}</td>
-        <td>{{datum.calories}}</td>
+        <td>{{datum.calories | number:'.2-2'}}</td>
         <td>{{datum.altitude}}</td>
-        <td>{{datum.altitudeDiffDownhill}}</td>
-        <td>{{datum.altitudeDiffUphill}}</td>
+        <!--<td>{{datum.altitudeDiffDownhill}}</td>-->
+        <!--<td>{{datum.altitudeDiffUphill}}</td>-->
         <td>{{datum.cadence}}</td>
-        <td>{{datum.distanceAbsolute}}</td>
-        <td>{{datum.distance}}</td>
-        <td>{{datum.distanceDownhill}}</td>
-        <td>{{datum.distanceUphill}}</td>
+        <td>{{datum.distanceAbsolute | number:'.2-2'}}</td>
+        <td>{{datum.distance | number:'.2-2'}}</td>
+        <td>{{datum.distanceDownhill | number:'.2-2'}}</td>
+        <td>{{datum.distanceUphill | number:'.2-2'}}</td>
         <td>{{datum.heartrate}}</td>
         <td>{{datum.intensityZone}}</td>
         <td>{{datum.rotations}}</td>
-        <td>{{datum.speed}}</td>
+        <td>{{datum.speed | number:'.2-2'}} </td>
+
         <td>{{datum.speedTime}}</td>
         <td>{{datum.targetZone}}</td>
         <!--td>{{datum.temperature | celsiusToFahrenheit}}</td-->
