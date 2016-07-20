@@ -2,7 +2,7 @@ import {Component, OnInit, OnDestroy } from '@angular/core';
 import { TDLineChartComponent }         from '../../components/td-line-chart/td-line-chart.component';
 import { TDLineChartConfig }   from '../../components/td-line-chart/td-line-chart-config';
 import {TrainingService} from "../../services/training.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 import {Training} from "../../models/training";
 
 @Component({

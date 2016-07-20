@@ -1,0 +1,12 @@
+<h2>Training Data Area Chart </h2>
+<div>Activity Name: {{train?.name}}</div>
+<div>Activity Date: {{train?.date}}</div>
+<div>Activity Type: {{train?.activityType }}</div>
+
+<select style="float: right" [(ngModel)]="d3interpolation" (change)="changeInterpolation()">
+    <option *ngFor="let iv of interpolationValues" [value]="iv.value">{{iv.value}}</option>
+</select>
+
+
+
+<area-chart *ngIf="tdAreaChartConfig" [config]="tdAreaChartConfig"></area-chart>

@@ -14,7 +14,7 @@ import {ListViewComponent} from "./components/list-view/list-view.component";
       <a [routerLink]="['/sessionDetail/56']">Detail</a>
       <a [routerLink]="['/tdAreaChart/56']">Area Chart</a>
       <a [routerLink]="['/tdLineChart/56']">Line Chart</a>
-      <a [routerLink]="['/d3Trainer']">Bar Chart</a>
+      <!--a [routerLink]="['/d3Trainer']">Bar Chart</a-->
     </nav>
     <div id="content">
         <router-outlet></router-outlet>
