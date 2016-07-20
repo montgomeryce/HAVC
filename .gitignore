@@ -1,5 +1,8 @@
 HAVC/app/**/*.js
 HAVC/app/**/*.map
+app/**/*.js
+app/**/*.map
 typings
 node_modules
 .idea
+npm-debug.log
