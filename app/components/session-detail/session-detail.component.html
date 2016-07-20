@@ -1,0 +1,58 @@
+<h2>My Training Data </h2>
+<div>Activity Name: {{train?.name}}</div>
+<div>Activity Date: {{train?.date}}</div>
+<div>Activity Type: {{train?.activityType }}</div>
+<table class="trainingDataTable">
+    <thead>
+    <tr>
+        <td title="Polling Index">Number</td>
+        <td title="Calories in KCal" >Calories</td>
+        <td title="Altitude in feet">Altitude</td>
+        <td title="Altitude difference downhill in feet">AltDiffDownhill</td>
+        <td title="Altitude difference uphill in feet">AltDiffUphill</td>
+        <td title="Cadence rotations per minute">Cadence</td>
+        <td title="Absolute Distance in meters?" >Dist Abs</td>
+        <td title="Distance in meters?" >Dist</td>
+        <td title="Distance Downhill in meters?" >Dist Downhill</td>
+        <td title="Distance Uphill in meters?" >Dist Uphill</td>
+        <td title="bpm" >HeartRate</td>
+        <td title="" >IntensityZone</td>
+        <td title="" >Rotations</td>
+        <td title="meters per second?" >Speed</td>
+        <td title="" >SpeedTime</td>
+        <td title="" >TargetZone</td>
+        <td title="Temperature in Fahrenheit">Temp </td>
+        <td title="Training Time in seconds" >TT</td>
+        <td title="Absolute Training Time in minutes (with fractional seconds)" >TTAbs</td>
+        <td title="Training Time Downhill in seconds" >TTDownhill</td>
+        <td title="Training Time Uphill in seconds" >TTUphill</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let datum of trainData">
+        <td>{{datum.number}}</td>
+        <td>{{datum.calories}}</td>
+        <td>{{datum.altitude}}</td>
+        <td>{{datum.altitudeDiffDownhill}}</td>
+        <td>{{datum.altitudeDiffUphill}}</td>
+        <td>{{datum.cadence}}</td>
+        <td>{{datum.distanceAbsolute}}</td>
+        <td>{{datum.distance}}</td>
+        <td>{{datum.distanceDownhill}}</td>
+        <td>{{datum.distanceUphill}}</td>
+        <td>{{datum.heartrate}}</td>
+        <td>{{datum.intensityZone}}</td>
+        <td>{{datum.rotations}}</td>
+        <td>{{datum.speed}}</td>
+        <td>{{datum.speedTime}}</td>
+        <td>{{datum.targetZone}}</td>
+        <!--td>{{datum.temperature | celsiusToFahrenheit}}</td-->
+        <td>{{datum.temperature}}</td>
+        <td>{{datum.trainingTime}}</td>
+        <td>{{datum.trainingTimeAbsolute | secondsToMinutes}}</td>
+        <td>{{datum.trainingTimeDownhill}}</td>
+        <td>{{datum.trainingTimeUphill}}</td>
+
+    </tr>
+    </tbody>
+</table>
