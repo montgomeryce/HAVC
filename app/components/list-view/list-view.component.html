@@ -21,8 +21,8 @@
         <td>{{session.name}}</td>
         <td>{{session.activityType}}</td>
         <td>{{session.totalTime }}</td>
-        <td>{{session.totalDistance}}</td>
-        <td>{{session.totalCalories}}</td>
+        <td>{{session.totalDistance| number:'.0-0'}}</td>
+        <td>{{session.totalCalories | number:'.0-0'}}</td>
         <td><button (click)="onSelect(session.id)">Table</button></td>
         <td>
             <button (click)="onSelectLine(session.id)">Line</button>/<button (click)="onSelectArea(session.id)">Area</button>
