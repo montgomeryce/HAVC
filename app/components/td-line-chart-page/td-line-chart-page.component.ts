@@ -44,7 +44,7 @@ export class TDLineChartPageComponent implements OnInit, OnDestroy {
                 }else {*/
 
                 if (this.items.indexOf("Speed") > -1) {
-                    let speed = new TDLineChartConfig('', this.d3interpolation);
+                    let speed = new TDLineChartConfig('Speed','', 'orange',this.d3interpolation);
 
                     speed.dataset = this.train.data.map(data => {
                         return {x: data.number, y: data.speed};
@@ -52,7 +52,7 @@ export class TDLineChartPageComponent implements OnInit, OnDestroy {
                     this.tdLineChartConfig.push(speed);
                 }
                 if (this.items.indexOf("HeartRate") > -1) {
-                    let hr = new TDLineChartConfig('', this.d3interpolation);
+                    let hr = new TDLineChartConfig('HeartRate','', 'red',this.d3interpolation);
 
                     hr.dataset = this.train.data.map(data => {
                         return {x: data.number, y: data.heartrate};
@@ -60,7 +60,7 @@ export class TDLineChartPageComponent implements OnInit, OnDestroy {
                     this.tdLineChartConfig.push(hr);
                 }
                 if (this.items.indexOf("Temperature") > -1) {
-                    let temp = new TDLineChartConfig('', this.d3interpolation);
+                    let temp = new TDLineChartConfig('Temperature','', 'green',this.d3interpolation);
 
                     temp.dataset = this.train.data.map(data => {
                         return {x: data.number, y: data.temperature};
@@ -68,7 +68,7 @@ export class TDLineChartPageComponent implements OnInit, OnDestroy {
                     this.tdLineChartConfig.push(temp);
                 }
                 if (this.items.indexOf("Altitude") > -1) {
-                    let altitude = new TDLineChartConfig('', this.d3interpolation);
+                    let altitude = new TDLineChartConfig('Altitude','', 'blue',this.d3interpolation);
 
                     altitude.dataset = this.train.data.map(data => {
                         return {x: data.number, y: data.altitude*.10};

@@ -70,7 +70,7 @@ export class TDLineChartComponent {
     }
     /**
      * Method to create the X Axis, will use Month as tick date format
-     * Also assing some classes for CSS Styling
+     * Also passing some classes for CSS Styling
      **/
     private drawXAxis(): void {
         this.xAxis = D3.svg.axis().scale(this.xScale)
@@ -82,9 +82,10 @@ export class TDLineChartComponent {
             .attr('transform', 'translate(0,' + this.height + ')')
             .call(this.xAxis);
     }
+
     /**
      * Method to create the Y Axis, will use numeric values as tick date format
-     * Also assing some classes for CSS Styling and rotating the axis vertically
+     * Also passing some classes for CSS Styling and rotating the axis vertically
      **/
     private drawYAxis(): void {
         this.yAxis = D3.svg.axis().scale(this.yScale)
@@ -101,9 +102,9 @@ export class TDLineChartComponent {
      * it later for the maximum number in the Y Axis
      **/
     private getMaxY(): number {
-        let maxValuesOfAreas = [];
-        this.config.forEach(data => maxValuesOfAreas.push(Math.max.apply(Math, data.dataset.map(d => d.y))));
-        return Math.max(...maxValuesOfAreas);
+        let maxValuesOfLines = [];
+        this.config.forEach(data => maxValuesOfLines.push(Math.max.apply(Math, data.dataset.map(d => d.y))));
+        return Math.max(...maxValuesOfLines);
     }
     /**
      * Now we populate using our dataset, mapping the x and y values
@@ -111,17 +112,18 @@ export class TDLineChartComponent {
      * how the Line Chart is plotted.
      **/
     private populate(): void {
-        this.config.forEach((area: any) => {
-            this.xScale.domain(D3.extent(area.dataset, (d: any) => d.x));
+        this.config.forEach((line: any) => {
+            this.xScale.domain(D3.extent(line.dataset, (d: any) => d.x));
             this.yScale.domain([0, this.getMaxY()]);
             this.svg.append('path')
-                .datum(area.dataset)
+                .datum(line.dataset)
                 .attr('class', 'line')
-                .style('fill', area.settings.fill)
+                .style('fill', line.settings.fill)
+                .style('stroke',line.settings.color)
                 .attr('d', D3.svg.line()
                     .x((d: any) => this.xScale(d.x))
                     .y((d: any) => this.yScale(d.y))
-                    .interpolate(area.settings.interpolation));
+                    .interpolate(line.settings.interpolation));
 
         });
     }

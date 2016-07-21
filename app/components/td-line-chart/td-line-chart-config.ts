@@ -1,7 +1,7 @@
 export class TDLineChartConfig {
-  constructor(fill: string,interpolation: string) {
-    this.settings = { fill, interpolation };
+  constructor(name:string,fill: string,color:string,interpolation: string) {
+    this.settings = { name,fill, color,interpolation };
   }
-  settings: { fill: string, interpolation: string };
+  settings: { name:string, fill: string, color: string,interpolation: string };
   dataset: Array<{ x: number, y: number }>
 }

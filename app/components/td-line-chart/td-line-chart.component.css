@@ -1,25 +1,9 @@
 
-/*
-
-:host .axis path,
-:host .axis line {
-    fill: none;
-    stroke: #000;
-    shape-rendering: crispEdges;
-}
-*/
-
-:host .x.axis path {
-    display: none;
-}
-
 :host .line {
     fill: none;
     stroke: steelblue;
     stroke-width: 1.5px;
 }
-
-
 
 :host {
     width: 100%;
