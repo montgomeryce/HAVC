@@ -11,10 +11,8 @@ import {ListViewComponent} from "./components/list-view/list-view.component";
     <h1>{{title}}</h1>
     <nav>
       <a [routerLink]="['/sessionList']">Sessions</a>
-      <a [routerLink]="['/sessionDetail/56']">Detail</a>
-      <a [routerLink]="['/tdAreaChart/56']">Area Chart</a>
-      <a [routerLink]="['/tdLineChart/56']">Line Chart</a>
-      <!--a [routerLink]="['/d3Trainer']">Bar Chart</a-->
+      <a [routerLink]="['/records']">Records</a>
+      <a [routerLink]="['/statistics']">Statistics</a>
     </nav>
     <div id="content">
         <router-outlet></router-outlet>

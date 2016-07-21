@@ -3,12 +3,16 @@ import {TDAreaChartPageComponent}         from './components/td-area-chart-page/
 import {TDLineChartPageComponent}         from './components/td-line-chart-page/td-line-chart-page.component';
 import {ListViewComponent} from "./components/list-view/list-view.component";
 import {SessionDetailComponent}     from './components/session-detail/session-detail.component';
+import {RecordsViewComponent} from "./components/records-view/records-view.component";
+import {StatisticsViewComponent} from "./components/statistics-view/statistics-view.component";
 
 const routes: RouterConfig = [
     {path: 'sessionList', component: ListViewComponent},
     {path: 'sessionDetail/:id',  component: SessionDetailComponent},
     {path: 'tdLineChart/:id',  component: TDLineChartPageComponent},
-    {path: 'tdAreaChart/:id',  component: TDAreaChartPageComponent}
+    {path: 'tdAreaChart/:id',  component: TDAreaChartPageComponent},
+    {path: 'records',  component: RecordsViewComponent},
+    {path: 'statistics',  component: StatisticsViewComponent}
 ];
 
 export const APP_ROUTER_PROVIDERS = [
