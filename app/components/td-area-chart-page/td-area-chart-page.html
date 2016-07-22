@@ -1,7 +1,4 @@
-<h2>Training Data Area Chart </h2>
-<div>Activity Name: {{train?.name}}</div>
-<div>Activity Date: {{train?.date}}</div>
-<div>Activity Type: {{train?.activityType }}</div>
+<training-header [training]="train"></training-header>
 
 <select style="float: right" [(ngModel)]="d3interpolation" (change)="changeInterpolation()">
     <option *ngFor="let iv of interpolationValues" [value]="iv.value">{{iv.value}}</option>

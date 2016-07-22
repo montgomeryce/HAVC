@@ -7,13 +7,15 @@ import {ActivatedRoute} from "@angular/router";
 import {SecondsToMinutesPipe} from "../../pipes/seconds-to-minutes.pipe";
 import {MetersToFeetPipe} from "../../pipes/meters-to-feet.pipe";
 import {MetersToMilesPipe} from "../../pipes/meters-to-miles.pipe";
+import {TrainingHeaderComponent} from "../training-header/training-header.component";
 
 @Component({
     selector: 'session-detail',
     moduleId: module.id,
     templateUrl: 'session-detail.component.html',
     pipes: [CelsiusToFahrenheitPipe,SecondsToMinutesPipe, MetersToFeetPipe, MetersToMilesPipe],
-    styleUrls: ['session-detail.component.css']
+    styleUrls: ['session-detail.component.css'],
+    directives: [TrainingHeaderComponent]
 
 })
 

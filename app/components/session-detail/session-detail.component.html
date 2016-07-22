@@ -1,15 +1,11 @@
-<h2>My Training Data </h2>
-<div>Activity Name: {{train?.name}}</div>
-<div>Activity Date: {{train?.date}}</div>
-<div>Activity Type: {{train?.activityType }}</div>
+<training-header [training]="train"></training-header>
 <table class="trainingDataTable">
     <thead>
     <tr>
         <td title="Polling Index">Number</td>
         <td title="Calories in KCal" >Calories</td>
         <td title="Altitude in feet">Altitude</td>
-        <!--<td title="Altitude difference downhill in feet">AltDiffDownhill</td>
-        <td title="Altitude difference uphill in feet">AltDiffUphill</td>-->
+        <td title="Altitude change in feet" >Alt Change (ft)</td>
         <td title="Cadence rotations per minute">Cadence</td>
         <td title="Absolute Distance in miles" >Total Dist (mi)</td>
         <td title="Distance in feet" >Dist (ft)</td>
@@ -31,8 +27,11 @@
         <td>{{datum.number}}</td>
         <td>{{datum.calories | number:'.2-2'}}</td>
         <td>{{datum.altitude}}</td>
-        <!--<td>{{datum.altitudeDiffDownhill}}</td>-->
-        <!--<td>{{datum.altitudeDiffUphill}}</td>-->
+        <td>
+            <p *ngIf="datum.altitudeDiffDownhill > 0">D {{datum.altitudeDiffDownhill}}</p>
+            <p *ngIf="datum.altitudeDiffUphill > 0">U {{datum.altitudeDiffUphill}}</p>
+            <p *ngIf="datum.altitudeDiffDownhill == 0 && datum.altitudeDiffUphill == 0"> - </p>
+        </td>
         <td>{{datum.cadence}}</td>
         <td>{{datum.distanceAbsolute | metersToMiles | number:'.2-2'}}</td>
         <td>{{datum.distance | metersToFeet | number:'.2-2'}}</td>

@@ -4,6 +4,7 @@ import { TDAreaChartConfig }   from '../../components/td-area-chart/td-area-char
 import {TrainingService} from "../../services/training.service";
 import {ActivatedRoute} from "@angular/router";
 import {Training} from "../../models/training";
+import {TrainingHeaderComponent} from "../training-header/training-header.component";
 
 @Component({
     selector: 'area-chart-page',
@@ -11,7 +12,7 @@ import {Training} from "../../models/training";
     templateUrl: 'td-area-chart-page.html',
     styleUrls: ['td-area-chart-page.css'],
     providers: [TrainingService],
-    directives: [TDAreaChartComponent]
+    directives: [TDAreaChartComponent,TrainingHeaderComponent]
 })
 
 

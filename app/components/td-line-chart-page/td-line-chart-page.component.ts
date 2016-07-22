@@ -4,6 +4,8 @@ import { TDLineChartConfig }   from '../../components/td-line-chart/td-line-char
 import {TrainingService} from "../../services/training.service";
 import {ActivatedRoute} from "@angular/router";
 import {Training} from "../../models/training";
+import {TrainingHeaderComponent} from "../training-header/training-header.component";
+
 
 @Component({
     selector: 'line-chart-page',
@@ -11,7 +13,7 @@ import {Training} from "../../models/training";
     templateUrl: 'td-line-chart-page.html',
     styleUrls: ['td-line-chart-page.css'],
     providers: [TrainingService],
-    directives: [TDLineChartComponent]
+    directives: [TDLineChartComponent, TrainingHeaderComponent]
 })
 
 export class TDLineChartPageComponent implements OnInit, OnDestroy {
