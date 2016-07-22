@@ -34,8 +34,10 @@ export class TDAreaChartPageComponent implements OnInit, OnDestroy {
     ngOnInit() {
         this.sub = this.route.params.subscribe(params => {
             let id = +params['id']; // (+) converts string 'id' to a number
-            this.trainingService.getTraining(id).subscribe(data => {
-                this.train = data.json();
+            //this.trainingService.getTraining(id).subscribe(
+            this.trainingService.getTraining(id).then(
+                data => {
+                    this.train = data;
 
                 //=========================================================
                 let altitude = new TDAreaChartConfig();

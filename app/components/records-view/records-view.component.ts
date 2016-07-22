@@ -21,11 +21,9 @@ export class RecordsViewComponent implements OnInit {
     getListData() {
         console.log('********* getListData **********');
 
-        this.trainingService
-            .getTrainingSessions()
-            .subscribe(data => {
-                this.trainingSessions = data.json();
-            });
+        this.trainingService.getTrainingSessions().then(
+            data => this.trainingSessions = data
+        );
     }
 
     ngOnInit() {

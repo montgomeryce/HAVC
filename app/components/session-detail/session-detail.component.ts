@@ -25,10 +25,14 @@ export class SessionDetailComponent implements OnInit,OnDestroy {
 
     }
     ngOnInit() {
+
         this.sub = this.route.params.subscribe(params => {
             let id = +params['id']; // (+) converts string 'id' to a number
-            this.trainingService.getTraining(id).subscribe(data => {
-                this.train = data.json();
+
+            this.trainingService.getTraining(id).then(data => {
+                this.train = data;
+            //this.trainingService.getTraining(id).subscribe(data => {
+                //this.train = data.json();
                 this.trainData = this.train.data;
             });
         });

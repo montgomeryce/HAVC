@@ -2,6 +2,8 @@
 <div>Activity Name: {{train?.name}}</div>
 <div>Activity Date: {{train?.date}}</div>
 <div>Activity Type: {{train?.activityType }}</div>
+
+
 <fieldset>
     <legend>Lines</legend>
     <input type="checkbox" (change)="toggleSpeed()" value="Speed" checked />Speed
@@ -9,9 +11,8 @@
     <input type="checkbox" (change)="toggleTemperature()" value="Temperature" checked />Temperature
     <input type="checkbox" (change)="toggleAltitude()" value="Altitude" checked />Altitude
 </fieldset>
-
-
 <select style="float: right" [(ngModel)]="d3interpolation" (change)="changeInterpolation()">
     <option *ngFor="let iv of interpolationValues" [value]="iv.value">{{iv.value}}</option>
 </select>
+
 <line-chart *ngIf="tdLineChartConfig" [config]="tdLineChartConfig"></line-chart>

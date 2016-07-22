@@ -13,22 +13,21 @@ import {Router} from "@angular/router";
 
 export class ListViewComponent implements OnInit {
     error:any;
-    trainingSessions:Training[]
-
-    constructor(private trainingService:TrainingService,
-                private router: Router) {
+    trainingSessions:Training[];
+    
+    constructor(
+        private trainingService:TrainingService,
+        private router: Router) {
 
     }
 
     getListData() {
         console.log('********* getListData **********');
-
-        this.trainingService
-            .getTrainingSessions()
-            .subscribe(data => {
-                this.trainingSessions = data.json();
-            });
+        this.trainingService.getTrainingSessions().then(
+            data => this.trainingSessions = data
+        );
     }
+
 
     ngOnInit() {
         this.getListData();
