@@ -3,7 +3,7 @@ import {Training}                from '../../models/training';
 import {TrainingService}         from '../../services/training.service';
 import {CelsiusToFahrenheitPipe} from '../../pipes/celsius-to-fahrenheit.pipe';
 import {TrainingData} from "../../models/training-data";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 import {SecondsToMinutesPipe} from "../../pipes/seconds-to-minutes.pipe";
 
 @Component({

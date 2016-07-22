@@ -50,7 +50,7 @@ export class TDAreaChartComponent {
      **/
     private setup(): void {
         //this.margin = { top: 20, right: 20, bottom: 40, left: 40 };
-        this.margin = { top: 40, right: 40, bottom: 180, left: 80 };
+        this.margin = { top: 20, right: 40, bottom: 10, left: 80 };
         this.width = this.htmlElement.clientWidth - this.margin.left - this.margin.right;
         this.height = this.width * 0.5 - this.margin.top - this.margin.bottom;
         /*this.xScale = D3.time.scale().range([0, this.width]);*/
@@ -70,7 +70,7 @@ export class TDAreaChartComponent {
     }
     /**
      * Method to create the X Axis, will use Month as tick date format
-     * Also assing some classes for CSS Stylimg
+     * Also passing some classes for CSS Styling
      **/
     private drawXAxis(): void {
         this.xAxis = D3.svg.axis().scale(this.xScale)
@@ -85,9 +85,10 @@ export class TDAreaChartComponent {
             .attr('transform', 'translate(0,' + this.height + ')')
             .call(this.xAxis);
     }
+
     /**
      * Method to create the Y Axis, will use numeric values as tick date format
-     * Also assing some classes for CSS Styling and rotating the axis vertically
+     * Also passing some classes for CSS Styling and rotating the axis vertically
      **/
     private drawYAxis(): void {
         this.yAxis = D3.svg.axis().scale(this.yScale)

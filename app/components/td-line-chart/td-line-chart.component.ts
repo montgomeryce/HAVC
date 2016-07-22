@@ -76,6 +76,7 @@ export class TDLineChartComponent {
         this.xAxis = D3.svg.axis().scale(this.xScale)
             //.tickFormat(t => Moment(t).format('MMM').toUpperCase())
             /*.tickFormat(t => t)*/
+            .tickSize(-this.height)
             .tickPadding(15);
         this.svg.append('g')
             .attr('class', 'x axis')
@@ -115,16 +116,28 @@ export class TDLineChartComponent {
         this.config.forEach((line: any) => {
             this.xScale.domain(D3.extent(line.dataset, (d: any) => d.x));
             this.yScale.domain([0, this.getMaxY()]);
-            this.svg.append('path')
-                .datum(line.dataset)
-                .attr('class', 'line')
-                .style('fill', line.settings.fill)
-                .style('stroke',line.settings.color)
-                .attr('d', D3.svg.line()
-                    .x((d: any) => this.xScale(d.x))
-                    .y((d: any) => this.yScale(d.y))
-                    .interpolate(line.settings.interpolation));
-
+            if(line.settings.style=='Area') {
+                this.svg.append('path')
+                    .datum(line.dataset)
+                    .attr('class', 'line')
+                    .style('fill', line.settings.fill)
+                    .style('stroke', line.settings.color)
+                    .attr('d', D3.svg.area()
+                        .x((d:any) => this.xScale(d.x))
+                        .y0(this.height)
+                        .y1((d:any) => this.yScale(d.y))
+                        .interpolate(line.settings.interpolation));
+            }else{
+                this.svg.append('path')
+                    .datum(line.dataset)
+                    .attr('class', 'line')
+                    .style('fill', line.settings.fill)
+                    .style('stroke', line.settings.color)
+                    .attr('d', D3.svg.line()
+                        .x((d:any) => this.xScale(d.x))
+                        .y((d: any) => this.yScale(d.y))
+                        .interpolate(line.settings.interpolation));
+            }
         });
     }
 }
