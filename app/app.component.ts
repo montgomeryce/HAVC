@@ -11,6 +11,7 @@ import {ListViewComponent} from "./components/list-view/list-view.component";
     <h1>{{title}}</h1>
     <nav>
       <a [routerLink]="['/sessionList']">Sessions</a>
+      <a [routerLink]="['/calendar']">Calendar</a>
       <a [routerLink]="['/records']">Records</a>
       <a [routerLink]="['/statistics']">Statistics</a>
     </nav>

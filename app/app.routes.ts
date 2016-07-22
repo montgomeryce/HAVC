@@ -5,12 +5,14 @@ import {ListViewComponent} from "./components/list-view/list-view.component";
 import {SessionDetailComponent}     from './components/session-detail/session-detail.component';
 import {RecordsViewComponent} from "./components/records-view/records-view.component";
 import {StatisticsViewComponent} from "./components/statistics-view/statistics-view.component";
+import {CalendarViewComponent} from "./components/calendar-view/calendar-view.component";
 
 const routes: RouterConfig = [
     {path: 'sessionList', component: ListViewComponent},
     {path: 'sessionDetail/:id',  component: SessionDetailComponent},
     {path: 'tdLineChart/:id',  component: TDLineChartPageComponent},
     {path: 'tdAreaChart/:id',  component: TDAreaChartPageComponent},
+    {path: 'calendar',  component: CalendarViewComponent},
     {path: 'records',  component: RecordsViewComponent},
     {path: 'statistics',  component: StatisticsViewComponent}
 ];
