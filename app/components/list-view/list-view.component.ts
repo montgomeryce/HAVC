@@ -2,13 +2,14 @@ import {Component, OnInit} from '@angular/core';
 import {TrainingService}         from '../../services/training.service';
 import {Training} from "../../models/training";
 import {Router} from "@angular/router";
+import {MetersToMilesPipe} from "../../pipes/meters-to-miles.pipe";
 
 @Component({
     selector: 'list-view',
     moduleId: module.id,
     templateUrl: 'list-view.component.html',
     styleUrls: ['list-view.component.css'],
-    pipes: []
+    pipes: [MetersToMilesPipe]
 })
 
 export class ListViewComponent implements OnInit {

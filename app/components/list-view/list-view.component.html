@@ -2,25 +2,23 @@
 <table class="trainingDataTable">
     <thead>
     <tr>
-        <!--<td>Id</td>-->
         <td>Date</td>
         <td>Name</td>
         <td>ActivityType</td>
-        <td>Training Time</td>
-        <td>Training Distance</td>
-        <td>Training Calories</td>
+        <td title="Total time in ?">Time</td>
+        <td title="Total distance in miles">Distance</td>
+        <td title="Total calories">Calories</td>
         <td>View Data</td>
         <td>View Chart</td>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let session of trainingSessions">
-        <!--<td>{{session.id}}</td>-->
         <td>{{session.date}}</td>
         <td>{{session.name}}</td>
         <td>{{session.activityType}}</td>
         <td>{{session.totalTime }}</td>
-        <td>{{session.totalDistance| number:'.0-0'}}</td>
+        <td>{{session.totalDistance | metersToMiles| number:'.0-2'}}</td>
         <td>{{session.totalCalories | number:'.0-0'}}</td>
         <td><button (click)="onSelect(session.id)">Table</button></td>
         <td>

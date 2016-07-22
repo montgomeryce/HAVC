@@ -5,12 +5,14 @@ import {CelsiusToFahrenheitPipe} from '../../pipes/celsius-to-fahrenheit.pipe';
 import {TrainingData} from "../../models/training-data";
 import {ActivatedRoute} from "@angular/router";
 import {SecondsToMinutesPipe} from "../../pipes/seconds-to-minutes.pipe";
+import {MetersToFeetPipe} from "../../pipes/meters-to-feet.pipe";
+import {MetersToMilesPipe} from "../../pipes/meters-to-miles.pipe";
 
 @Component({
     selector: 'session-detail',
     moduleId: module.id,
     templateUrl: 'session-detail.component.html',
-    pipes: [CelsiusToFahrenheitPipe,SecondsToMinutesPipe],
+    pipes: [CelsiusToFahrenheitPipe,SecondsToMinutesPipe, MetersToFeetPipe, MetersToMilesPipe],
     styleUrls: ['session-detail.component.css']
 
 })
