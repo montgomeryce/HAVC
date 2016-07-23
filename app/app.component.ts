@@ -3,6 +3,7 @@ import {TrainingService}         from './services/training.service';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 import {SessionDetailComponent} from "./components/session-detail/session-detail.component";
 import {ListViewComponent} from "./components/list-view/list-view.component";
+import {CalendarViewComponent} from "./components/calendar-view/calendar-view.component";
 
 @Component({
     selector: 'my-app',
@@ -24,7 +25,7 @@ import {ListViewComponent} from "./components/list-view/list-view.component";
     providers: [
         TrainingService
     ],
-    precompile: [SessionDetailComponent,ListViewComponent]
+    precompile: [SessionDetailComponent,ListViewComponent,CalendarViewComponent]
 })
 
 export class AppComponent {

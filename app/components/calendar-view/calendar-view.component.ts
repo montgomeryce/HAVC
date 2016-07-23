@@ -6,17 +6,14 @@ import {Training} from "../../models/training";
     selector: 'calendar-view',
     moduleId: module.id,
     templateUrl: 'calendar-view.component.html',
-    styleUrls: ['calendar-view.component.css'],
-    pipes: []
+    styleUrls: ['calendar-view.component.css']
 })
 
 export class CalendarViewComponent implements OnInit {
     error:any;
     trainingSessions:Training[]
 
-    constructor(private trainingService:TrainingService) {
-
-    }
+    constructor(private trainingService:TrainingService) {}
 
     getListData() {
         console.log('********* getListData **********');

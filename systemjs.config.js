@@ -8,6 +8,7 @@
     'app':                        'app', // 'dist',
     '@angular':                   'node_modules/@angular',
     'd3':                   	  'node_modules/d3',
+    'moment':                     'node_modules/moment',
     'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api',
     'rxjs':                       'node_modules/rxjs'
   };
@@ -15,7 +16,7 @@
   var packages = {
     'app':                        { main: 'main.js',  defaultExtension: 'js' },
     'rxjs':                       { defaultExtension: 'js' },
-    'd3':                       { main: 'd3.js', defaultExtension: 'js' },
+    'd3':                         { main: 'd3.js', defaultExtension: 'js' },
     'angular2-in-memory-web-api': { main: 'index.js', defaultExtension: 'js' },
   };
   var ngPackageNames = [
