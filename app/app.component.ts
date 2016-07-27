@@ -4,6 +4,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
 import {SessionDetailComponent} from "./components/session-detail/session-detail.component";
 import {ListViewComponent} from "./components/list-view/list-view.component";
 import {CalendarViewComponent} from "./components/calendar-view/calendar-view.component";
+import {StatisticsViewComponent} from "./components/statistics-view/statistics-view.component";
 
 @Component({
     selector: 'my-app',
@@ -25,7 +26,7 @@ import {CalendarViewComponent} from "./components/calendar-view/calendar-view.co
     providers: [
         TrainingService
     ],
-    precompile: [SessionDetailComponent,ListViewComponent,CalendarViewComponent]
+    precompile: [SessionDetailComponent,ListViewComponent,CalendarViewComponent,StatisticsViewComponent]
 })
 
 export class AppComponent {
