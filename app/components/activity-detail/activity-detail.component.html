@@ -1,5 +1,5 @@
-<training-header [training]="train"></training-header>
-<table class="trainingDataTable">
+<activity-header [activity]="activity"></activity-header>
+<table class="activityDataTable">
     <thead>
     <tr>
         <td title="Polling Index">Number</td>
@@ -23,7 +23,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let datum of trainData">
+    <tr *ngFor="let datum of activityData">
         <td>{{datum.number}}</td>
         <td>{{datum.calories | number:'.2-2'}}</td>
         <td>{{datum.altitude}}</td>

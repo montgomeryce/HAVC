@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {TrainingService}         from '../../services/training.service';
-import {Training} from "../../models/training";
+import {ActivityService}         from '../../services/activity.service';
+import {Activity} from "../../models/activity";
 import {Router} from "@angular/router";
 import {MetersToMilesPipe} from "../../pipes/meters-to-miles.pipe";
 
@@ -14,18 +14,18 @@ import {MetersToMilesPipe} from "../../pipes/meters-to-miles.pipe";
 
 export class ListViewComponent implements OnInit {
     error:any;
-    trainingSessions:Training[];
+    activities:Activity[];
     
     constructor(
-        private trainingService:TrainingService,
+        private activityService:ActivityService,
         private router: Router) {
 
     }
 
     getListData() {
         console.log('********* getListData **********');
-        this.trainingService.getTrainingSessions().then(
-            data => this.trainingSessions = data
+        this.activityService.getActivities().then(
+            data => this.activities = data
         );
     }
 

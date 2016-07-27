@@ -1,12 +1,12 @@
 import { Pipe,PipeTransform } from "@angular/core";
-import {Training} from "../models/training";
+import {Activity} from "../models/activity";
 
 @Pipe({
     name: "OrderBy"
 })
 export class OrderByPipe implements PipeTransform{
-    transform(array: Training[], args: string): Training[] {
-        array.sort((a: Training, b: Training) => {
+    transform(array: Activity[], args: string): Activity[] {
+        array.sort((a: Activity, b: Activity) => {
             if (a.date < b.date) {
                 return -1;
             } else if (a.date > b.date) {

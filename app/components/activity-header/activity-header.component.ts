@@ -8,7 +8,7 @@ import {Activity} from "../../models/activity";
     styleUrls: ['activity-header.component.css']
 })
 
-export class TrainingHeaderComponent {
+export class ActivityHeaderComponent {
     error:any;
     @Input() activity: Activity;
     constructor() {

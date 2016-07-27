@@ -4,15 +4,11 @@
 	padding: 0;
 	width: 15em;
 }
-
-
-.trainingDataTable tbody tr:hover{
-	color: #607D8B;
-	background-color: #DDD;
-}
-
-
 .recordList .text {
 	position: relative;
 	top: -3px;
+}
+.activityDataTable tbody tr:hover{
+	color: #607D8B;
+	background-color: #DDD;
 }

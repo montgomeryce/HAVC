@@ -1,5 +1,5 @@
-import {ActivityData} from "./training-data";
 
+import {ActivityData} from "./activity-data";
 export class Activity {
     id:number;
     name:string;
@@ -9,5 +9,7 @@ export class Activity {
     totalCalories:number;
     totalDistance:number;
     totalTime:number;
-    data:ActivityData[];
+
+    data:ActivityData[]
+
 }

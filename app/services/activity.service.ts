@@ -1,20 +1,21 @@
 import {Injectable}    from '@angular/core';
 import {Http} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
-import {Training} from "../models/training";
+import {Activity} from "../models/activity";
+import {ActivityData} from "../models/activity-data";
 
 @Injectable()
-export class TrainingService {
+export class ActivityService {
 
     //mock in-memory-db
-    private trainingsUrl = 'app/trainings';
-    //private trainingsUrl = 'http://localhost:8080/training/';
+    private activitiesUrl = 'app/activities';
+    //private activitiesUrl = 'http://localhost:8080/activities/';
 
     constructor(private http:Http) {
     }
 
 
-    /*getTrainingPromise(id:number):Promise<Training> {
+    /*getTrainingPromise(id:number):Promise<Activity> {
         console.log('********* getTrainingData **********');
         return this.http.get(trainingsUrl + id)
             .toPromise()
@@ -30,14 +31,20 @@ export class TrainingService {
 
     // URL to web api
 
-    getTrainingSessions() {
-        return this.http.get(this.trainingsUrl)
+    getActivities() {
+        return this.http.get(this.activitiesUrl)
             .toPromise()
-            .then(response => response.json().data as Training[])
+            .then(response => response.json().data as Activity[])
             .catch(this.handleError);
     }
-    getTraining(id: number) {
-        return this.getTrainingSessions()
+    getActivityData(id: number) {
+        return this.http.get('app/activities')
+            .toPromise()
+            .then(response => response.json().data as ActivityData[])
+            .catch(this.handleError);
+    }
+    getActivity(id: number) {
+        return this.getActivities()
             .then(trainings => trainings.find(training => training.id === id));
     }
 }

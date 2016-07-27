@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {TrainingService}         from '../../services/training.service';
-import {Training} from "../../models/training";
+import {ActivityService}         from '../../services/activity.service';
+import {Activity} from "../../models/activity";
 
 @Component({
     selector: 'calendar-view',
@@ -11,14 +11,14 @@ import {Training} from "../../models/training";
 
 export class CalendarViewComponent implements OnInit {
     error:any;
-    trainingSessions:Training[]
+    trainingSessions:Activity[]
 
-    constructor(private trainingService:TrainingService) {}
+    constructor(private trainingService:ActivityService) {}
 
     getListData() {
         console.log('********* getListData **********');
 
-        this.trainingService.getTrainingSessions().then(
+        this.trainingService.getActivities().then(
             data => this.trainingSessions = data
         );
     }

@@ -1,10 +1,11 @@
 import {Component} from '@angular/core';
-import {TrainingService}         from './services/training.service';
+import {ActivityService}         from './services/activity.service';
 import { ROUTER_DIRECTIVES } from '@angular/router';
-import {SessionDetailComponent} from "./components/session-detail/session-detail.component";
+import {ActivityDetailComponent} from "./components/activity-detail/activity-detail.component";
 import {ListViewComponent} from "./components/list-view/list-view.component";
 import {CalendarViewComponent} from "./components/calendar-view/calendar-view.component";
 import {StatisticsViewComponent} from "./components/statistics-view/statistics-view.component";
+import {RecordsViewComponent} from "./components/records-view/records-view.component";
 
 @Component({
     selector: 'my-app',
@@ -12,7 +13,7 @@ import {StatisticsViewComponent} from "./components/statistics-view/statistics-v
     template: `
     <h1>{{title}}</h1>
     <nav>
-      <a [routerLink]="['/sessionList']">Sessions</a>
+      <a [routerLink]="['/sessionList']">Activities</a>
       <a [routerLink]="['/calendar']">Calendar</a>
       <a [routerLink]="['/records']">Records</a>
       <a [routerLink]="['/statistics']">Statistics</a>
@@ -24,9 +25,9 @@ import {StatisticsViewComponent} from "./components/statistics-view/statistics-v
     styleUrls: ['app.component.css'],
     directives: [ROUTER_DIRECTIVES],
     providers: [
-        TrainingService
+        ActivityService
     ],
-    precompile: [SessionDetailComponent,ListViewComponent,CalendarViewComponent,StatisticsViewComponent]
+    precompile: [ActivityDetailComponent,ListViewComponent,CalendarViewComponent,StatisticsViewComponent,RecordsViewComponent]
 })
 
 export class AppComponent {

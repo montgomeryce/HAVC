@@ -1,6 +1,6 @@
 import {Component, Attribute, ElementRef, Inject, Input, OnInit} from '@angular/core';
 import * as d3 from 'd3';
-import {Training} from "../../models/training";
+import {Activity} from "../../models/activity";
 
 @Component({
     selector: 'bar-chart',
@@ -10,7 +10,7 @@ import {Training} from "../../models/training";
 })
 export class BarChartComponent implements OnInit{
 
-    @Input() sessions:Training[];
+    @Input() sessions:Activity[];
     private divs: any;
     private width: number;
     private height: number;
