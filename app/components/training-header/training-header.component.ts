@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Training} from "../../models/training";
 
 @Component({
@@ -8,13 +8,10 @@ import {Training} from "../../models/training";
     styleUrls: ['training-header.component.css']
 })
 
-export class TrainingHeaderComponent implements OnInit {
+export class TrainingHeaderComponent {
     error:any;
     @Input() training: Training;
     constructor() {
 
-    }
-
-    ngOnInit() {
     }
 }
