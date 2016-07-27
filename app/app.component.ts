@@ -13,7 +13,7 @@ import {RecordsViewComponent} from "./components/records-view/records-view.compo
     template: `
     <h1>{{title}}</h1>
     <nav>
-      <a [routerLink]="['/sessionList']">Activities</a>
+      <a [routerLink]="['/activityList']">Activities</a>
       <a [routerLink]="['/calendar']">Calendar</a>
       <a [routerLink]="['/records']">Records</a>
       <a [routerLink]="['/statistics']">Statistics</a>

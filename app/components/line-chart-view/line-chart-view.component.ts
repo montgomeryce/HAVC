@@ -1,6 +1,6 @@
 import {Component, OnInit, OnDestroy } from '@angular/core';
-import { TDLineChartComponent }         from '../../components/td-line-chart/td-line-chart.component';
-import { TDLineChartConfig }   from '../../components/td-line-chart/td-line-chart-config';
+import { LineChartComponent }         from '../line-chart/line-chart.component';
+import { LineChartConfig }   from '../line-chart/line-chart-config';
 import {ActivityService} from "../../services/activity.service";
 import {ActivatedRoute} from "@angular/router";
 import {ActivityHeaderComponent} from "../activity-header/activity-header.component";
@@ -9,18 +9,18 @@ import {Activity} from "../../models/activity";
 
 
 @Component({
-    selector: 'line-chart-page',
+    selector: 'line-chart-view',
     moduleId: module.id,
-    templateUrl: 'td-line-chart-page.html',
-    styleUrls: ['td-line-chart-page.css'],
+    templateUrl: 'line-chart-view.html',
+    styleUrls: ['line-chart-view.css'],
     providers: [ActivityService],
-    directives: [TDLineChartComponent, ActivityHeaderComponent]
+    directives: [LineChartComponent, ActivityHeaderComponent]
 })
 
-export class TDLineChartPageComponent implements OnInit, OnDestroy {
+export class LineChartViewComponent implements OnInit, OnDestroy {
     private activity:Activity;
     private activityData:ActivityData[];
-    private tdLineChartConfig: Array<TDLineChartConfig>;
+    private tdLineChartConfig: Array<LineChartConfig>;
     private d3interpolation = 'basis';//basis implements beta spline (smoothens )
     private sub: any;
     private items: string[] = ['HeartRate', 'Speed','Temperature', 'Altitude'];
@@ -48,16 +48,16 @@ export class TDLineChartPageComponent implements OnInit, OnDestroy {
             this.activityService.getActivityData(id).then(
                 data => {
                 this.activityData = data;*/
-                this.tdLineChartConfig = new Array<TDLineChartConfig>();
+                this.tdLineChartConfig = new Array<LineChartConfig>();
 
 
               /*  if(this.items.length<1) {
-                    let empty = new TDLineChartConfig('',this.d3interpolation);
+                    let empty = new LineChartConfig('',this.d3interpolation);
                     this.tdLineChartConfig.push(empty);
                 }else {*/
 
                 if (this.items.indexOf("Speed") > -1) {
-                    let speed = new TDLineChartConfig('Speed','', 'orange',this.d3interpolation,'Line');
+                    let speed = new LineChartConfig('Speed','', 'orange',this.d3interpolation,'Line');
 
                     speed.dataset = this.activityData.map(data => {
                         return {x: data.number, y: data.speed};
@@ -65,7 +65,7 @@ export class TDLineChartPageComponent implements OnInit, OnDestroy {
                     this.tdLineChartConfig.push(speed);
                 }
                 if (this.items.indexOf("HeartRate") > -1) {
-                    let hr = new TDLineChartConfig('HeartRate','', 'red',this.d3interpolation,'Line');
+                    let hr = new LineChartConfig('HeartRate','', 'red',this.d3interpolation,'Line');
 
                     hr.dataset = this.activityData.map(data => {
                         return {x: data.number, y: data.heartRate};
@@ -73,7 +73,7 @@ export class TDLineChartPageComponent implements OnInit, OnDestroy {
                     this.tdLineChartConfig.push(hr);
                 }
                 if (this.items.indexOf("Temperature") > -1) {
-                    let temp = new TDLineChartConfig('Temperature','', 'green',this.d3interpolation,'Line');
+                    let temp = new LineChartConfig('Temperature','', 'green',this.d3interpolation,'Line');
 
                     temp.dataset = this.activityData.map(data => {
                         return {x: data.number, y: data.temperature};
@@ -81,7 +81,7 @@ export class TDLineChartPageComponent implements OnInit, OnDestroy {
                     this.tdLineChartConfig.push(temp);
                 }
                 if (this.items.indexOf("Altitude") > -1) {
-                    let altitude = new TDLineChartConfig('Altitude','rgba(1, 67, 163, .1)', 'blue',this.d3interpolation,'Area');
+                    let altitude = new LineChartConfig('Altitude','rgba(1, 67, 163, .1)', 'blue',this.d3interpolation,'Area');
 
                     altitude.dataset = this.activityData.map(data => {
                         return {x: data.number, y: data.altitude*.10};

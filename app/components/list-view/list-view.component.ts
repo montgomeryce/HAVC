@@ -35,12 +35,9 @@ export class ListViewComponent implements OnInit {
     }
 
     onSelect(id: number) {
-        this.router.navigate(['/sessionDetail', id]);
+        this.router.navigate(['/activityDetail', id]);
     }
     onSelectLine(id: number) {
-        this.router.navigate(['/tdLineChart', id]);
-    }
-    onSelectArea(id: number) {
-        this.router.navigate(['/tdAreaChart', id]);
+        this.router.navigate(['/lineChart', id]);
     }
 }

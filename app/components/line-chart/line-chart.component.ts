@@ -1,5 +1,5 @@
 import {Component, Input, ElementRef} from '@angular/core';
-import {TDLineChartConfig} from './td-line-chart-config';
+import {LineChartConfig} from './line-chart-config';
 import * as D3 from 'd3';
 //import * as Moment from 'moment';
 
@@ -7,13 +7,13 @@ import * as D3 from 'd3';
     selector: 'line-chart',
     moduleId: module.id,
     template: `<ng-content></ng-content>`,
-    styleUrls: ['td-line-chart.component.css'],
+    styleUrls: ['line-chart.component.css'],
     directives: []
 })
 
-export class TDLineChartComponent {
+export class LineChartComponent {
 
-    @Input() config: Array<TDLineChartConfig>;
+    @Input() config: Array<LineChartConfig>;
 
     private host;
     private svg;
