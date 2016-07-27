@@ -1,13 +1,13 @@
-import {TrainingData} from "./training-data";
+import {ActivityData} from "./training-data";
 
-export class Training {
+export class Activity {
     id:number;
     name:string;
     date:string;
     person:string;
-    activityType:string;
+    type:string;
     totalCalories:number;
     totalDistance:number;
     totalTime:number;
-    data:TrainingData[];
+    data:ActivityData[];
 }

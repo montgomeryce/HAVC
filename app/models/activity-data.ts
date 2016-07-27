@@ -1,4 +1,4 @@
-export class TrainingData {
+export class ActivityData {
   number: number;
   altitude: number;
   altitudeDiffDownhill: number;
@@ -9,7 +9,7 @@ export class TrainingData {
   distance: number;
   distanceDownhill: number;
   distanceUphill: number;
-  heartrate: number;
+  heartRate: number;
   intensityZone: number;
   rotations: number;
   speed: number;
