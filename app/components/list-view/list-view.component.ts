@@ -24,7 +24,7 @@ export class ListViewComponent implements OnInit {
 
     getListData() {
         console.log('********* getListData **********');
-        this.activityService.getActivities().then(
+        this.activityService.getActivities('date','desc').then(
             data => this.activities = data
         );
     }
@@ -35,9 +35,11 @@ export class ListViewComponent implements OnInit {
     }
 
     onSelect(id: number) {
-        this.router.navigate(['/activityDetail', id]);
+        console.log('onSelect', id);
+        this.router.navigate(['/activityDetail',id]);
     }
     onSelectLine(id: number) {
+        console.log('onSelectLine',id);
         this.router.navigate(['/lineChart', id]);
     }
 }
