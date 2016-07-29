@@ -7,6 +7,7 @@ import {StatisticsViewComponent} from "./components/statistics-view/statistics-v
 import {CalendarViewComponent} from "./components/calendar-view/calendar-view.component";
 
 const routes: RouterConfig = [
+    {path: '', component: ListViewComponent},
     {path: 'activityList', component: ListViewComponent},
     {path: 'activityDetail/:id',  component: ActivityDetailComponent},
     {path: 'lineChart/:id',  component: LineChartViewComponent},
