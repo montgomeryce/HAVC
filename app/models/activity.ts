@@ -10,6 +10,6 @@ export class Activity {
     totalDistance:number;
     totalTime:number;
 
-    data:ActivityData[]
+    //data:ActivityData[]
 
 }
