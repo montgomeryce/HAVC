@@ -25,21 +25,22 @@ export class ActivityDetailComponent implements OnInit,OnDestroy {
     private sub: any;
 
     constructor(private activityService:ActivityService, private route: ActivatedRoute) {
-
+        console.log('ActivityDetailComponent');
     }
     ngOnInit() {
-
+        console.log('ActivityDetailComponent: onInit');
         this.sub = this.route.params.subscribe(params => {
             let id = +params['id']; // (+) converts string 'id' to a number
 
             this.activityService.getActivity(id).then(data => {
                 this.activity = data;
-                this.activityData = this.activity.data;
+                //this.activityData = this.activity.data;
             });
 
-            /*this.activityService.getActivityData(id).then(data => {
+            //look into just calling http://localhost:8080/activity/{{id}} as this will return both parent and child data in one call. 
+            this.activityService.getActivityData(id).then(data => {
                 this.activityData = data;
-            });*/
+            });
         });
     }
     ngOnDestroy() {

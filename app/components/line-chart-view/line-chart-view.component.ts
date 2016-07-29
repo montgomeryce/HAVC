@@ -43,11 +43,12 @@ export class LineChartViewComponent implements OnInit, OnDestroy {
                 data => {
                     this.activity = data;
                     // for now..
-                    this.activityData = this.activity.data;
-         /*       })
+                    //this.activityData = this.activity.data;
+               })
             this.activityService.getActivityData(id).then(
                 data => {
-                this.activityData = data;*/
+                    this.activityData = data;
+
                 this.tdLineChartConfig = new Array<LineChartConfig>();
 
 

@@ -12,19 +12,18 @@ import {BarChartComponent} from "../bar-chart/bar-chart.component";
 })
 
 export class StatisticsViewComponent implements OnInit {
-    trainingSessions:Activity[];
+    activities:Activity[];
 
     constructor(private trainingService:ActivityService) {
     }
 
-    getListData() {
-        console.log('********* getListData **********');
-        this.trainingService.getActivities().then(
-            data => this.trainingSessions = data
+    getData() {
+        this.trainingService.getActivities('date','desc','6').then(
+            data => this.activities = data
         );
     }
 
     ngOnInit() {
-        this.getListData();
+        this.getData();
     }
 }
