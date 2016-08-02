@@ -21,9 +21,11 @@ export class ActivityService {
 
     /**
      * method overloading in typescript/javascript is awkward at best...
+     * Since the typescript is transpiled into javascript and javascript doesn't have method overloading this gets ugly.
      */
     getActivities();
     getActivities(sortBy?: string,direction?:string);
+    getActivities(sortBy?: string, direction?:string, limit?:number);
     /**
      * 
      * @param sortBy
@@ -53,6 +55,12 @@ export class ActivityService {
             .then(data => data.json()._embedded.activities as Activity[])
             .catch(this.handleError);
     }
+
+    /**
+     * Gets the recorded data for a given activity
+     * @param id
+     * @returns {Promise<void>|Promise<ActivityData[]>}
+     */
     getActivityData(id: number) {
         console.log('getActivityData('+id+')');
         //return this.http.get('app/activities/'+id+'/data')
@@ -61,6 +69,12 @@ export class ActivityService {
             .then(data => data.json().data as ActivityData[])
             .catch(this.handleError);
     }
+
+    /**
+     * Gets an individual activity
+     * @param id
+     * @returns {Promise<void>|Promise<Activity>}
+     */
     getActivity(id: number) {
         console.log('getActivity('+id+')');
         return this.http.get('http://localhost:8080/activities/'+id)
