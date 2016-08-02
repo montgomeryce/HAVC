@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivityService}         from '../../services/activity.service';
+import {ActivityService} from '../../services/activity.service';
 import {Activity} from "../../models/activity";
 import {BarChartComponent} from "../bar-chart/bar-chart.component";
 
@@ -14,11 +14,11 @@ import {BarChartComponent} from "../bar-chart/bar-chart.component";
 export class StatisticsViewComponent implements OnInit {
     activities:Activity[];
 
-    constructor(private trainingService:ActivityService) {
+    constructor(private activityService:ActivityService) {
     }
 
     getData() {
-        this.trainingService.getActivities('date','desc','6').then(
+        this.activityService.getActivities('date','desc',6).then(
             data => this.activities = data
         );
     }

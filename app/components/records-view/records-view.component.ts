@@ -15,15 +15,15 @@ export class RecordsViewComponent implements OnInit {
     calBurnActs:Activity[];
     longestActs:Activity[];
 
-    constructor(private trainingService:ActivityService) {
+    constructor(private activityService:ActivityService) {
 
     }
 
     getData() {
-        this.trainingService.getActivities('totalCalories','desc','6').then(
+        this.activityService.getActivities('totalCalories','desc',6).then(
             data => this.calBurnActs = data
         );
-        this.trainingService.getActivities('totalDistance','desc','6').then(
+        this.activityService.getActivities('totalDistance','desc',6).then(
             data => this.longestActs = data
         );
     }

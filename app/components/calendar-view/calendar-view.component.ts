@@ -11,15 +11,15 @@ import {Activity} from "../../models/activity";
 
 export class CalendarViewComponent implements OnInit {
     error:any;
-    trainingSessions:Activity[]
+    activities:Activity[]
 
-    constructor(private trainingService:ActivityService) {}
+    constructor(private activityService:ActivityService) {}
 
     getListData() {
         console.log('********* getListData **********');
 
-        this.trainingService.getActivities().then(
-            data => this.trainingSessions = data
+        this.activityService.getActivities().then(
+            data => this.activities = data
         );
     }
 

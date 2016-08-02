@@ -9,7 +9,7 @@ export class ActivityService {
 
     //mock in-memory-db
     //private activitiesUrl = 'app/activities';
-    private activitiesUrl = 'http://localhost:8080/activities'; // desc doesnt appear to be working..
+    private activitiesUrl = 'http://localhost:8080/activities';
 
     constructor(private http:Http) {
     }
@@ -20,23 +20,29 @@ export class ActivityService {
     }
 
     /**
+     * method overloading in typescript/javascript is awkward at best...
+     */
+    getActivities();
+    getActivities(sortBy?: string,direction?:string,limit?:number);
+    /**
      * 
      * @param sortBy
      * @param direction
      * @param limit // has to be under default size of the page(20) for now 
      * @returns {Promise<Activity[]>|Promise<void>}
      */
-    getActivities(sortBy: string,direction:string, limit:number) {
+    getActivities(sortBy?: string, direction?:string, limit?:number) {
     
         console.log('getActivities()', this.activitiesUrl);
         var query='?1=1';//hack to get around unknown first param
         if(sortBy!==undefined){
             query += '&sort='+sortBy+',' + (direction==='desc'?'desc':'asc');
         }
-        if(limit>0){
+        if(limit!==undefined && limit>0){
             query +='&size='+limit;
         }
-        if(limit>21){
+
+        if(limit!==undefined && limit>21){
             console.warn('limit is over the default page size. data will be limited to 20');
         }
         
