@@ -23,7 +23,7 @@ export class ActivityService {
      * method overloading in typescript/javascript is awkward at best...
      */
     getActivities();
-    getActivities(sortBy?: string,direction?:string,limit?:number);
+    getActivities(sortBy?: string,direction?:string);
     /**
      * 
      * @param sortBy
@@ -51,21 +51,6 @@ export class ActivityService {
             .toPromise()
             //.then(data => data._body.data['_embedded'].activities as Activity[])
             .then(data => data.json()._embedded.activities as Activity[])
-            //.then(data =>{
-             //   console.log('DATA: ',data);
-                /*console.log('data:', data);
-                console.log('data.json()',data.json());
-                console.log('data.json()._embedded',data.json()._embedded);*/
-                //console.log('data.json()._embedded.activities',data.json()._embedded.activities);
-
-
-                //data.json().activities as Activity[];
-                //data._body.data['_embedded'].activities as Activity[]
-                //data.json().data as Activity[]
-                //data['_embedded'].activities as Activity[]
-                // Set the products Array
-                //this.products = data['_embedded'].products;
-            //})
             .catch(this.handleError);
     }
     getActivityData(id: number) {
@@ -78,8 +63,11 @@ export class ActivityService {
     }
     getActivity(id: number) {
         console.log('getActivity('+id+')');
-
-        return this.getActivities()
-            .then(activities => activities.find(activity => activity.id === id));
+        return this.http.get('http://localhost:8080/activities/'+id)
+            .toPromise()
+            .then(data => data.json() as Activity)
+            .catch(this.handleError);
+/*        return this.getActivities()
+            .then(activities => activities.find(activity => activity.id === id));*/
     }
 }

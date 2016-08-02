@@ -33,12 +33,14 @@ export class ActivityDetailComponent implements OnInit,OnDestroy {
             let id = +params['id']; // (+) converts string 'id' to a number
 
             this.activityService.getActivity(id).then(data => {
+                console.log('activity', data);
                 this.activity = data;
                 //this.activityData = this.activity.data;
             });
 
             //look into just calling http://localhost:8080/activity/{{id}} as this will return both parent and child data in one call. 
             this.activityService.getActivityData(id).then(data => {
+                console.log('activityData', data);
                 this.activityData = data;
             });
         });
