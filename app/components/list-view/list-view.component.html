@@ -13,17 +13,21 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let session of activities">
-        <td>{{session.date}}</td>
-        <td>{{session.name}}</td>
-        <td>{{session.type}}</td>
-        <td>{{session.totalTime }}</td>
-        <td>{{session.totalDistance | metersToMiles| number:'.0-2'}}</td>
-        <td>{{session.totalCalories | number:'.0-0'}}</td>
-        <td><button (click)="onSelect(session.id)">Table</button></td>
+    <tr *ngFor="let activity of activities">
+        <td>{{activity.date}}</td>
+        <td>{{activity.name}}</td>
+        <td>{{activity.type}}</td>
+        <td>{{activity.totalTime }}</td>
+        <td>{{activity.totalDistance | metersToMiles| number:'.0-2'}}</td>
+        <td>{{activity.totalCalories | number:'.0-0'}}</td>
+        <td><button (click)="onSelect(activity.id)">Table</button></td>
         <td>
-            <button (click)="onSelectLine(session.id)">Chart</button>
+            <button (click)="onSelectLine(activity.id)">Chart</button>
         </td>
     </tr>
     </tbody>
 </table>
+<button (click)="prevPage(page.number)">Prev</button>
+<button (click)="nextPage(page.number)">Next</button>
+<!--
+<button *ngIf="page.totalPages>1 && page.number < page.totalPages" (click)="nextPage(page.number)">Next</button>-->

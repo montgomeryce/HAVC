@@ -26,6 +26,7 @@ export class ActivityService {
     getActivities();
     getActivities(sortBy?: string,direction?:string);
     getActivities(sortBy?: string, direction?:string, limit?:number);
+    getActivities(sortBy?: string, direction?:string, limit?:number, page?:number);
     /**
      * 
      * @param sortBy
@@ -33,10 +34,13 @@ export class ActivityService {
      * @param limit // has to be under default size of the page(20) for now 
      * @returns {Promise<Activity[]>|Promise<void>}
      */
-    getActivities(sortBy?: string, direction?:string, limit?:number) {
+    getActivities(sortBy?: string, direction?:string, limit?:number,page?:number) {
     
         console.log('getActivities()', this.activitiesUrl);
         var query='?1=1';//hack to get around unknown first param
+        if(page!=undefined && page >=0){
+            query +='&page='+page;
+        }
         if(sortBy!==undefined){
             query += '&sort='+sortBy+',' + (direction==='desc'?'desc':'asc');
         }
@@ -47,12 +51,13 @@ export class ActivityService {
         if(limit!==undefined && limit>21){
             console.warn('limit is over the default page size. data will be limited to 20');
         }
-        
+
         console.log(this.activitiesUrl + query);
         return this.http.get(this.activitiesUrl + query)
             .toPromise()
             //.then(data => data._body.data['_embedded'].activities as Activity[])
-            .then(data => data.json()._embedded.activities as Activity[])
+            //.then(data => data.json()._embedded.activities as Activity[])
+            .then(data => data.json())
             .catch(this.handleError);
     }
 
