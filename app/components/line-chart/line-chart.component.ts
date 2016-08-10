@@ -49,10 +49,11 @@ export class LineChartComponent {
      * also we create the xScale and yScale ranges depending on calculations
      **/
     private setup(): void {
-        //this.margin = { top: 20, right: 20, bottom: 40, left: 40 };
-        this.margin = { top: 20, right: 40, bottom: 10, left: 80 };
+        //this.margin = { top: 20, right: 40, bottom: 10, left: 80 };
+        this.margin = { top: 20, right: 20, bottom: 40, left: 40 };
         this.width = this.htmlElement.clientWidth - this.margin.left - this.margin.right;
-        this.height = this.width * 0.5 - this.margin.top - this.margin.bottom;
+        //this.width = this.width * 0.8;
+        this.height = this.width * 0.3 - this.margin.top - this.margin.bottom;
         /*this.xScale = D3.time.scale().range([0, this.width]);*/
         this.xScale = D3.scale.linear().range([0, this.width]);
         this.yScale = D3.scale.linear().range([this.height, 0]);
