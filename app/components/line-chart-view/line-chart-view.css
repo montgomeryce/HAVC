@@ -1,0 +1,17 @@
+activity-header {
+    float: left;
+}
+lc-menu {
+    float: right;
+}
+/*
+
+line-chart{
+    border:1px solid black;
+    position:relative;
+}
+lc-menu{
+    position:absolute;
+    right: 0;
+}
+*/

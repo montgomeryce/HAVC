@@ -1,0 +1,7 @@
+#chart-menu {
+    //position: absolute;
+    background-color: lightgrey;
+    //visibility: hidden;
+    border: 1px solid black;
+    z-index: 100;
+}

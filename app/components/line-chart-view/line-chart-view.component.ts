@@ -6,6 +6,7 @@ import {ActivatedRoute} from "@angular/router";
 import {ActivityHeaderComponent} from "../activity-header/activity-header.component";
 import {ActivityData} from "../../models/activity-data";
 import {Activity} from "../../models/activity";
+import {LCMenuComponent} from "../lc-menu/lc-menu.component";
 
 
 @Component({
@@ -14,7 +15,7 @@ import {Activity} from "../../models/activity";
     templateUrl: 'line-chart-view.html',
     styleUrls: ['line-chart-view.css'],
     providers: [ActivityService],
-    directives: [LineChartComponent, ActivityHeaderComponent]
+    directives: [LineChartComponent, ActivityHeaderComponent,LCMenuComponent]
 })
 
 export class LineChartViewComponent implements OnInit, OnDestroy {
@@ -24,15 +25,20 @@ export class LineChartViewComponent implements OnInit, OnDestroy {
     private d3interpolation = 'basis';//basis implements beta spline (smoothens )
     private sub: any;
     private items: string[] = ['HeartRate', 'Speed','Temperature', 'Altitude'];
-    private interpolationValues = [
-        {value: 'linear'},{value: 'step-before'},
-        {value: 'step-after'},{value: 'basis'},
-        {value: 'basis-open'},{value: 'basis-closed'},
-        {value: 'cardinal'},{value: 'cardinal-open'},
-        {value: 'cardinal-closed'},{value: 'monotone'}
-    ];
+
     constructor(private activityService: ActivityService, private route: ActivatedRoute) {
 
+    }
+   configChange(items: string[]) {
+        console.log('configChange', items);
+        this.items = items;
+        this.ngOnInit();
+    }
+
+    interpolationChange(interpolation: string){
+        console.log('changing interpolation of d3 chart (Parent)', interpolation);
+        this.d3interpolation = interpolation;
+        this.ngOnInit();
     }
 
     ngOnInit() {
@@ -98,33 +104,4 @@ export class LineChartViewComponent implements OnInit, OnDestroy {
         this.sub.unsubscribe();
     }
 
-
-    toggleSpeed(){
-        this.toggle("Speed");
-    }
-    toggleHeartRate(){
-        this.toggle("HeartRate");
-    }
-    toggleTemperature(){
-        this.toggle("Temperature");
-    }
-    toggleAltitude(){
-        this.toggle("Altitude");
-    }
-    toggle(param){
-        var index = this.items.indexOf(param, 0);
-        if (index > -1) {
-            this.items.splice(index, 1);
-        }else{
-            this.items.push(param);
-        }
-
-        console.log(this.items);
-        this.ngOnInit();
-    }
-
-    changeInterpolation(){
-        console.log('changing interpolation of d3 chart ');
-        this.ngOnInit();
-    }
 }

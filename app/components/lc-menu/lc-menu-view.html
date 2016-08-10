@@ -1,6 +1,4 @@
-<activity-header [activity]="activity"></activity-header>
-<lc-menu (configChange)="configChange($event)" (interpolationChange)="interpolationChange($event)"></lc-menu>
-<!--<div id="chartMenu" style="float:right;" ><i class="fa fa-gear" aria-hidden="true"></i>
+<div id="chartMenu" ><i class="fa fa-gear" aria-hidden="true" (click)="toggleMenu()"></i>
 
     <div>Lines
         <div><input type="checkbox" (change)="toggleSpeed()" value="Speed" checked />Speed</div>
@@ -9,11 +7,8 @@
         <div><input type="checkbox" (change)="toggleAltitude()" value="Altitude" checked />Altitude</div>
     </div>
     <div>Interpolation
-        <div><select style="float: right" [(ngModel)]="d3interpolation" (change)="changeInterpolation()">
+        <div><select [(ngModel)]="d3interpolation" (change)="changeInterpolation($event.target.value)">
             <option *ngFor="let iv of interpolationValues" [value]="iv.value">{{iv.value}}</option>
         </select></div>
     </div>
-</div>-->
-
-
-<line-chart *ngIf="tdLineChartConfig" [config]="tdLineChartConfig"></line-chart>
+</div>
